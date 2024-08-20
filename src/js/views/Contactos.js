@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../../styles/Contactos.css";
-import UserCard from "../component/UserCard";
+import UserCard from "../component/UserCard.jsx";
 import { Context } from "../store/appContext";
 
 export const Contactos = () => {

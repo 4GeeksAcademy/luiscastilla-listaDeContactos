@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Contactos } from "./views/Contactos";
 import { Formulario } from "./views/Formulario";
 import injectContext from "./store/appContext";
-import { Navbar } from "./component/navbar";
+import { Navbar } from "./component/navbar.jsx";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";

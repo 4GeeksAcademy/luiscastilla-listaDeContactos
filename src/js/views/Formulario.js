@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/Formulario.css";
 
 export const Formulario = () => {
-	const { actions } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	const [fullName, setFullName] = useState("");
 	const [email, setEmail] = useState("");
@@ -13,15 +13,36 @@ export const Formulario = () => {
 	
 	const navigate = useNavigate();
 
+	// Rellenar el formulario si estamos en modo edición
+	useEffect(() => {
+		if (store.contactToEdit) {
+			setFullName(store.contactToEdit.name);
+			setEmail(store.contactToEdit.email);
+			setPhone(store.contactToEdit.phone);
+			setAddress(store.contactToEdit.address);
+		}
+	}, [store.contactToEdit]);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const nuevoContacto = {
+
+		const contactoActualizado = {
 			name: fullName,
 			phone: phone,
 			email: email,
 			address: address,
 		};
-		actions.crearContacto(nuevoContacto);
+
+		if (store.contactToEdit) {
+			// Editar contacto existente
+			actions.editarContacto(store.contactToEdit.id, contactoActualizado);
+		} else {
+			// Crear nuevo contacto
+			actions.crearContacto(contactoActualizado);
+		}
+
+		// Limpiar el contacto en edición y regresar a la lista de contactos
+		actions.clearContactToEdit();
 		navigate("/");
 	};
 
@@ -49,5 +70,4 @@ export const Formulario = () => {
 		</div>
 	);
 };
-
 

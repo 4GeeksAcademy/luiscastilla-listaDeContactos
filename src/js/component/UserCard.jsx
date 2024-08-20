@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import '../../styles/UserCard.css';
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 const UserCard = ({ contact }) => {
     const { actions } = useContext(Context);
@@ -19,7 +20,9 @@ const UserCard = ({ contact }) => {
                 <p><i className="fas fa-envelope"></i> {contact.email}</p>
             </div>
             <div className="user-card__actions">
-                {/* <i className="fas fa-pencil-alt" onClick={() => actions.editarContacto(contact.id, contact)}></i> */}
+            <Link to="/Formulario">
+                    <i className="fas fa-pencil-alt" onClick={() => actions.setContactToEdit(contact)}></i>
+				</Link>
                 <i className="fas fa-trash" onClick={() => actions.eliminarContacto(contact.id)}></i>
             </div>
         </div>

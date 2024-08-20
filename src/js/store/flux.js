@@ -1,9 +1,16 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
-            contacts: []
+            contacts: [],
+            contactToEdit: null, // Añadir esta propiedad para manejar el contacto en edición
         },
         actions: {
+            setContactToEdit: (contact) => {
+                setStore({ contactToEdit: contact });
+            },
+            clearContactToEdit: () => {
+                setStore({ contactToEdit: null });
+            },
             crearAgenda: async () => {
                 try {
                     const res = await fetch(`https://playground.4geeks.com/contact/agendas/luis_castilla`, {
@@ -53,24 +60,24 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.error("Error al crear el contacto:", error);
                 }
             },
-            // editarContacto: async (id, contactoActualizado) => {
-            //     try {
-            //         const res = await fetch(`https://playground.4geeks.com/contact/agendas/luis_castilla/contacts/${id}`, {
-            //             method: "PUT",
-            //             headers: {
-            //                 "Content-Type": "application/json"
-            //             },
-            //             body: JSON.stringify(contactoActualizado)
-            //         });
-            //         if (res.ok) {
-            //             getActions().cargarContactos(); // Recargar contactos después de editar uno
-            //         } else {
-            //             console.error("Error al editar el contacto");
-            //         }
-            //     } catch (error) {
-            //         console.error("Error al editar el contacto:", error);
-            //     }
-            // },
+            editarContacto: async (id, contactoActualizado) => {
+                try {
+                    const res = await fetch(`https://playground.4geeks.com/contact/agendas/luis_castilla/contacts/${id}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(contactoActualizado)
+                    });
+                    if (res.ok) {
+                        getActions().cargarContactos(); // Recargar contactos después de editar uno
+                    } else {
+                        console.error("Error al editar el contacto");
+                    }
+                } catch (error) {
+                    console.error("Error al editar el contacto:", error);
+                }
+            },
             eliminarContacto: async (id) => {
                 try {
                     const res = await fetch(`https://playground.4geeks.com/contact/agendas/luis_castilla/contacts/${id}`, {
