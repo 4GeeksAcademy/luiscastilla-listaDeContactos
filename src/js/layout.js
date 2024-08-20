@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Contactos } from "./views/Contactos";
 import { Formulario } from "./views/Formulario";
 import injectContext from "./store/appContext";
-import { Navbar } from "./component/navbar.jsx";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
@@ -11,7 +10,6 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-					<Navbar />
 					<Routes>
 						<Route path="/" element={<Contactos />} />
 						<Route path="/Formulario" element={<Formulario />} />

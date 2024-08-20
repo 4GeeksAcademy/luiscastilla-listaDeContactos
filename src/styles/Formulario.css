@@ -1,5 +1,13 @@
+h2{
+    text-align: center;
+    font-weight: bold;
+}
+
+.container{
+    max-width: 900px;
+}
 form {
-    max-width: 400px;
+    max-width: 900px;
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -21,7 +29,7 @@ input[type="text"], input[type="email"], input[type="tel"] {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #28a745;
+    background-color: #0099ff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -29,5 +37,5 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background-color: #218838;
+    background-color: #0004ff;
 }

@@ -47,25 +47,26 @@ export const Formulario = () => {
 	};
 
 	return (
-		<div className="container">
+		<div className="container mt-5">
+			<h2>Add a new contact</h2>
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="fullName">Full Name</label>
-				<input type="text" id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+				<input type="text" id="fullName" value={fullName} placeholder="Full Name" onChange={(e) => setFullName(e.target.value)} required />
 
 				<label htmlFor="email">Email</label>
-				<input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+				<input type="email" id="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
 
 				<label htmlFor="phone">Phone</label>
-				<input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+				<input type="tel" id="phone" value={phone} placeholder="Phone" onChange={(e) => setPhone(e.target.value)} required />
 
 				<label htmlFor="address">Address</label>
-				<input type="text" id="address" value={address} onChange={(e) => setAddress(e.target.value)} required />
+				<input type="text" id="address" value={address} placeholder="Address" onChange={(e) => setAddress(e.target.value)} required />
 
 				<button type="submit">Guardar</button>
 			</form>
 			<br />
 			<Link to="/">
-				<button className="btn btn-primary">Back Contactos</button>
+				<p className="btn btn-primary">or get back to contacts</p>
 			</Link>
 		</div>
 	);

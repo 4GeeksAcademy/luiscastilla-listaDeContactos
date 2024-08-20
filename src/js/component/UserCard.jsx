@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const UserCard = ({ contact }) => {
     const { actions } = useContext(Context);
 
-	return (
+    return (
         <div className="user-card">
             <img
                 src="https://previews.123rf.com/images/djvstock/djvstock1701/djvstock170102949/69084495-dise%C3%B1o-gr%C3%A1fico-del-ejemplo-del-vector-del-icono-del-perfil-ejecutivo-del-hombre-de-negocios.jpg"
@@ -20,15 +20,15 @@ const UserCard = ({ contact }) => {
                 <p><i className="fas fa-envelope"></i> {contact.email}</p>
             </div>
             <div className="user-card__actions">
-            <Link to="/Formulario">
+                <Link to="/Formulario">
                     <i className="fas fa-pencil-alt" onClick={() => actions.setContactToEdit(contact)}></i>
-				</Link>
+                </Link>
                 <i className="fas fa-trash" onClick={() => actions.eliminarContacto(contact.id)}></i>
             </div>
         </div>
-	);
-  };
-  
-  export default UserCard;
+    );
+};
+
+export default UserCard;
 
 
