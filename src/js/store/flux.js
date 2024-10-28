@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             contacts: [],
-            contactToEdit: null, // Añadir esta propiedad para manejar el contacto en edición
+            contactToEdit: null, 
         },
         actions: {
             setContactToEdit: (contact) => {
@@ -21,7 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         body: JSON.stringify([])
                     });
                     if (res.ok) {
-                        getActions().cargarContactos(); // Cargar contactos después de crear la agenda
+                        getActions().cargarContactos(); 
                     } else {
                         console.error("Error al crear la agenda");
                     }
@@ -35,11 +35,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                     if (!res.ok) {
                         throw new Error("Agenda no encontrada");
                     }
-                    const data = await res.json(); // Obtiene los datos de la respuesta
+                    const data = await res.json(); 
                     setStore({ contacts: data.contacts });
                 } catch (error) {
                     console.error("Error al cargar la lista de contactos:", error);
-                    getActions().crearAgenda(); // Crear la agenda si no existe
+                    getActions().crearAgenda(); 
                 }
             },
             crearContacto: async (nuevoContacto) => {
@@ -52,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         body: JSON.stringify(nuevoContacto)
                     });
                     if (res.ok) {
-                        getActions().cargarContactos(); // Recargar contactos después de crear uno nuevo
+                        getActions().cargarContactos(); 
                     } else {
                         console.error("Error al crear el contacto");
                     }
@@ -70,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         body: JSON.stringify(contactoActualizado)
                     });
                     if (res.ok) {
-                        getActions().cargarContactos(); // Recargar contactos después de editar uno
+                        getActions().cargarContactos();
                     } else {
                         console.error("Error al editar el contacto");
                     }
@@ -84,7 +84,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         method: "DELETE"
                     });
                     if (res.ok) {
-                        getActions().cargarContactos(); // Recargar contactos después de eliminar uno
+                        getActions().cargarContactos(); 
                     } else {
                         console.error("Error al eliminar el contacto");
                     }

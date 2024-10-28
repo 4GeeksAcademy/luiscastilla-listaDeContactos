@@ -30,5 +30,3 @@ const UserCard = ({ contact }) => {
 };
 
 export default UserCard;
-
-

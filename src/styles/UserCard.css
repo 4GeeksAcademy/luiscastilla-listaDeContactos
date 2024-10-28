@@ -1,58 +1,96 @@
 .user-card {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    max-width: 800px;
-    margin: 16px auto;
+  display: flex;
+  align-items: center;
+  background-color: #1a184c;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 800px;
+  margin: 16px auto;
+  border: 1px solid #00c2ff;
+}
+
+
+@media (min-width: 600px) {
+  .user-card {
+    flex-direction: row;
   }
-  
+}
+
+.user-card__image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 40px;
+}
+
+@media (min-width: 600px) {
   .user-card__image {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin-right: 40px;
+      width: 100px;
+      height: 100px;
+      margin-right: 20px;
   }
-  
+}
+
+.user-card__info {
+  flex: 1;
+}
+
+@media (min-width: 600px) {
   .user-card__info {
-    flex: 1;
+      flex: 1;
+      text-align: left;
+      margin-top: 0;
   }
-  
+}
+
+.user-card__info h2 {
+  margin: 0;
+  font-size: 1.85rem;
+  color: #00c2ff;
+}
+
+@media (min-width: 768px) {
   .user-card__info h2 {
-    margin: 0;
-    font-size: 1.25rem;
+      font-size: 1.85rem;
   }
-  
-  .user-card__info p {
-    margin: 4px 0;
-    font-size: 0.9rem;
-    color: #555;
-    display: flex;
-    align-items: center;
-  }
-  
-  .user-card__info p i {
-    margin-right: 8px;
-    color: #777;
-  }
-  
+}
+
+.user-card__info p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
   .user-card__actions {
-    display: flex;
-    width: 70px;
-    justify-content: space-between;
-    margin-left: 16px;
-    margin-right: 16px;
+      justify-content: flex-end;
+      margin-top: 0;
   }
-  
-  .user-card__actions i {
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: #777;
-    margin: 4px 0;
-  }
-  
-  .user-card__actions i:hover {
-    color: #000;
-  }
+}
+
+.user-card__info p i {
+  margin-right: 8px;
+  color: #00c2ff;
+}
+
+.user-card__actions {
+  display: flex;
+  width: 70px;
+  justify-content: space-between;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.user-card__actions i {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+  margin: 4px 0;
+}
+
+.user-card__actions i:hover {
+  color: #00c2ff;
+}
